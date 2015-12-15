@@ -1,0 +1,36 @@
+{
+  "name": "ochre",
+  "version": "0.0.0",
+  "description": "Web app designed to search documents",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corevo/ochre.git"
+  },
+  "author": "corevo",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/corevo/ochre/issues"
+  },
+  "homepage": "https://github.com/corevo/ochre#readme",
+  "dependencies": {
+    "babel-core": "^6.2.1",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-react": "^6.1.18",
+    "babel-preset-stage-0": "^6.1.18",
+    "express": "^4.13.3",
+    "history": "^1.15.0",
+    "react": "^0.14.1",
+    "react-dom": "^0.14.1",
+    "react-redux": "^4.0.0",
+    "react-router": "^1.0.0",
+    "redux": "^3.0.4",
+    "redux-router": "^1.0.0-beta3",
+    "superagent": "^1.4.0",
+    "webpack": "^1.12.2"
+  }
+}
