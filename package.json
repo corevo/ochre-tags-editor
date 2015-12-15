@@ -1,21 +1,26 @@
 {
-  "name": "ochre",
+  "name": "ochre-tags-editor",
   "version": "0.0.0",
-  "description": "Web app designed to search documents",
+  "description": "additional tags editing tool for filesystem",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/corevo/ochre.git"
+    "url": "git+https://github.com/corevo/ochre-tags-editor.git"
   },
+  "keywords": [
+    "tags",
+    "ochre",
+    "files"
+  ],
   "author": "corevo",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/corevo/ochre/issues"
+    "url": "https://github.com/corevo/ochre-tags-editor/issues"
   },
-  "homepage": "https://github.com/corevo/ochre#readme",
+  "homepage": "https://github.com/corevo/ochre-tags-editor#readme",
   "dependencies": {
     "babel-core": "^6.2.1",
     "babel-loader": "^6.2.0",
