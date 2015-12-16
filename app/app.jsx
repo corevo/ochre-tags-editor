@@ -28,6 +28,7 @@ class App extends React.Component {
             <div>
                 <h1>FS</h1>
                 {this.props.children}
+                <Link to="/test/a">test/a</Link>
             </div>
         );
     }
@@ -46,7 +47,7 @@ let Appx = connect(
 let routes = (
     <Route path="/" component={Appx}>
         <IndexRoute component={Explorer} />
-        <Route path="/:path" component={Explorer} />
+        <Route path="/*" component={Explorer} />
     </Route>
 );
 
