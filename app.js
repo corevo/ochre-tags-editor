@@ -1,8 +1,12 @@
 import express from 'express';
+import path from 'path';
 import files from './lib/routes/files';
 
 let port = process.env.TAGS_PORT || 8080;
 let app = express();
+
+const STATIC_DIR = path.join(__dirname, 'public/assets');
+app.use('/assets', express.static(STATIC_DIR));
 
 app.use('/api', files);
 
