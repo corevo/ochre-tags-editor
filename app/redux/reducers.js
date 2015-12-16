@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { routerStateReducer } from 'redux-router';
 import { CHANGE_FILES } from './actions';
 
-function results(state = [], action) {
+function files(state = [], action) {
     switch (action.type) {
         case CHANGE_FILES:
         return action.files;
@@ -12,7 +12,7 @@ function results(state = [], action) {
 }
 const reducers = combineReducers({
     router: routerStateReducer,
-    showResults
+    files
 });
 
 export default reducers;
