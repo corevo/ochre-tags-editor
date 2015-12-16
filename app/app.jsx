@@ -9,6 +9,7 @@ import { createHistory } from 'history';
 import searchApp from './redux/reducers';
 import { changeFiles } from './redux/actions';
 import request from 'superagent';
+import Explorer from './views/explorer';
 
 let store = compose(
     reduxReactRouter({ createHistory })
@@ -44,6 +45,8 @@ let Appx = connect(
 
 let routes = (
     <Route path="/" component={Appx}>
+        <IndexRoute component={Explorer} />
+        <Route path="/:path" component={Explorer} />
     </Route>
 );
 
