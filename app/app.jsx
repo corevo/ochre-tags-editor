@@ -24,7 +24,10 @@ class App extends React.Component {
     }
     render () {
         return (
-            <h1>FS</h1>
+            <div>
+                <h1>FS</h1>
+                {this.props.children}
+            </div>
         );
     }
 }
