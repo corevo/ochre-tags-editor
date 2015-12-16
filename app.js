@@ -6,6 +6,10 @@ let app = express();
 
 app.use('/api', files);
 
+app.use('*', function(req, res) {
+    res.sendFile(__dirname + '/public/index.html');
+});
+
 // Start the server.
 let server = app.listen(port, () => {
     let { address } = server.address();
