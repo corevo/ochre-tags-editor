@@ -27,8 +27,13 @@ class App extends React.Component {
         return (
             <div>
                 <h1>FS</h1>
-                {this.props.children}
-                <Link to="/test/a">test/a</Link>
+                {React.cloneElement(this.props.children, {
+                    setFiles: function(files) {
+                        dispatch(changeFiles(files));
+                    },
+                    files: this.props.files
+                })}
+                <Link to="/Python27/">test/a</Link>
             </div>
         );
     }
