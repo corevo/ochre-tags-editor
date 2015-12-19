@@ -3,7 +3,7 @@ import request from 'superagent';
 
 export default class Explorer extends React.Component {
     static propTypes = {
-        setFiles: React.propTypes.func.isRequired
+        setFiles: React.PropTypes.func.isRequired
     }
     constructor(props) {
         super(props);
