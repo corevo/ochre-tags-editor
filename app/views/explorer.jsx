@@ -2,12 +2,16 @@ import React from 'react';
 import request from 'superagent';
 
 export default class Explorer extends React.Component {
+    static propTypes = {
+        setFiles: React.propTypes.func.isRequired
+    }
     constructor(props) {
         super(props);
     }
     componentWillReceiveProps(nextProps) {
         if (this.props.location.pathname !== nextProps.location.pathname) {
-            request.get('/api' + nextProps.location.pathname).end((err, res) => {
+            let path = '/api' + nextProps.location.pathname;
+            request.get(path).end((err, res) => {
                 if (!err) {
                     this.props.setFiles(JSON.parse(res.text));
                 }
