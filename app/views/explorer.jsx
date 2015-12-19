@@ -3,7 +3,8 @@ import request from 'superagent';
 
 export default class Explorer extends React.Component {
     static propTypes = {
-        setFiles: React.PropTypes.func.isRequired
+        setFiles: React.PropTypes.func,
+        files: React.PropTypes.array
     }
     constructor(props) {
         super(props);
@@ -12,6 +13,7 @@ export default class Explorer extends React.Component {
         if (this.props.location.pathname !== nextProps.location.pathname) {
             let path = '/api' + nextProps.location.pathname;
             request.get(path).end((err, res) => {
+                debugger;
                 if (!err) {
                     this.props.setFiles(JSON.parse(res.text));
                 }
