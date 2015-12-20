@@ -85,7 +85,7 @@ export default class Explorer extends React.Component {
                         : undefined }
                     { this.state.isEdit ?
                         <div>
-                            <textarea rows="4" cols="50" value={this.state.tags} />
+                            <textarea rows="4" cols="50" defaultValue={this.state.tags} />
                             <br />
                             <input type="submit" onClick={this.setTags.bind(this, this.state.path)} value="Submit Tags" />
                         </div>
