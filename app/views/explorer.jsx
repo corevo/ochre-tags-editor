@@ -14,6 +14,7 @@ export default class Explorer extends React.Component {
         };
         this.statPath = this.statPath.bind(this);
         this.editTags = this.editTags.bind(this);
+        this.setTags = this.setTags.bind(this);
     }
     statPath(path) {
         request.get(path).end((err, res) => {
@@ -36,12 +37,10 @@ export default class Explorer extends React.Component {
         });
     }
     setTags(path) {
-        request.post(path).end((err, res) => {
-            if (!err) {
-                this.setState({
-                    isEdit: false
-                });
-            }
+        request.post(path).send({tags: this.refs.input.value}).end((err, res) => {
+            this.setState({
+                isEdit: false
+            });
         });
     }
     componentWillMount() {
@@ -85,7 +84,7 @@ export default class Explorer extends React.Component {
                         : undefined }
                     { this.state.isEdit ?
                         <div>
-                            <textarea rows="4" cols="50" defaultValue={this.state.tags} />
+                            <textarea ref="input" rows="4" cols="50" defaultValue={this.state.tags} />
                             <br />
                             <input type="submit" onClick={this.setTags.bind(this, this.state.path)} value="Submit Tags" />
                         </div>
