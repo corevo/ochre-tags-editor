@@ -16,6 +16,8 @@ export default class Explorer extends React.Component {
             request.get(path).end((err, res) => {
                 if (!err) {
                     this.props.setFiles(JSON.parse(res.text));
+                } else {
+                    this.props.setFiles([]);
                 }
             });
         }
@@ -43,7 +45,9 @@ export default class Explorer extends React.Component {
                         }}>
                         { this.props.files.map(file => (
                             <li key={file}>
-                                <Link to={`${path}${file}`}>{file}</Link>
+                                { file.length - 1 !== file.lastIndexOf('/') && file.length - 1 !== file.lastIndexOf('\\')
+                                    ? <a onClick={this.editFile.bind(`${path}/${file}`)}>{file}</a>
+                                    : <Link to={`${path}/${file}`}>{file}</Link> }
                             </li>
                         ))}
                     </ul>
