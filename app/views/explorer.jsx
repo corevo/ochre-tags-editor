@@ -88,7 +88,9 @@ export default class Explorer extends React.Component {
                                     }}/>
                                     <div style={{
                                         display: 'block',
-                                        textAlign: 'center'
+                                        textAlign: 'center',
+                                        width: '200px',
+                                        wordWrap: 'break-word'
                                     }}>{file}</div></a>
                                     : <Link to={`${path}/${file}`}><img src="/assets/images/folder.png" height="100" style={{
                                         display: 'block',
@@ -96,7 +98,9 @@ export default class Explorer extends React.Component {
                                     }}/>
                                     <div style={{
                                         display: 'block',
-                                        textAlign: 'center'
+                                        textAlign: 'center',
+                                        width: '200px',
+                                        wordWrap: 'break-word'
                                     }}>{file}</div></Link> }
                                 </li>
                             ))}
@@ -109,6 +113,10 @@ export default class Explorer extends React.Component {
                             <input type="submit" onClick={this.setTags.bind(this, this.state.path)} value="Submit Tags" />
                         </div>
                     : undefined }
+                    <div style={{
+                        height: '100px',
+                        clear: 'both'
+                    }}></div>
                     </div>
                 );
             }
