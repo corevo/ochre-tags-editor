@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 import request from 'superagent';
+import Modal from 'react-modal';
+import TagsInput from 'react-tagsinput';
 
 export default class Explorer extends React.Component {
     static propTypes = {
@@ -10,11 +12,23 @@ export default class Explorer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isEdit: false
+            isEdit: false,
+            tags: []
         };
         this.statPath = this.statPath.bind(this);
         this.editTags = this.editTags.bind(this);
         this.setTags = this.setTags.bind(this);
+        this.closeModal = this.closeModal.bind(this);
+    }
+    closeModal() {
+        this.setState({
+            isEdit: false
+        });
+    }
+    tagsChanged(tags) {
+        this.setState({
+            tags
+        });
     }
     statPath(path) {
         request.get(path).end((err, res) => {
@@ -37,7 +51,9 @@ export default class Explorer extends React.Component {
         });
     }
     setTags(path) {
-        request.post(path).send({tags: this.refs.input.value}).end((err, res) => {
+        debugger;
+        console.log('hi');
+        request.post(path).send({tags: this.state.tags}).end((err, res) => {
             this.setState({
                 isEdit: false
             });
@@ -69,7 +85,7 @@ export default class Explorer extends React.Component {
                         links: []
                     }).links}</h1>
                     <hr />
-                    { this.props.files && !this.state.isEdit ?
+                    { this.props.files ?
                         <ul style={{
                                 listStyle: 'none'
                             }}>
@@ -106,13 +122,15 @@ export default class Explorer extends React.Component {
                             ))}
                         </ul>
                         : undefined }
-                    { this.state.isEdit ?
-                        <div>
-                            <textarea ref="input" rows="4" cols="50" defaultValue={this.state.tags} />
-                            <br />
-                            <input type="submit" onClick={this.setTags.bind(this, this.state.path)} value="Submit Tags" />
-                        </div>
-                    : undefined }
+                        <Modal
+                            isOpen={this.state.isEdit}
+                            onRequestClose={this.closeModal}>
+                            <h2>Add Tags</h2>
+                            <TagsInput value={this.state.tags} onChange={this.tagsChanged.bind(this)} style={{
+                                marginTop: '50px'
+                            }} />
+                            <button onClick={this.setTags.bind(this, this.state.path)} className="tags-button">Save Tags</button>
+                        </Modal>
                     <div style={{
                         height: '100px',
                         clear: 'both'
