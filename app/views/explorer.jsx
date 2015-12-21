@@ -74,10 +74,30 @@ export default class Explorer extends React.Component {
                                 listStyle: 'none'
                             }}>
                             { this.props.files.map(file => (
-                                <li key={file}>
+                                <li key={file} style={{
+                                    float: 'left',
+                                    marginRight: '60px',
+                                    marginTop: '60px',
+                                    fontSize: '20px'
+                                }}>
                                     { file.length - 1 !== file.lastIndexOf('/') && file.length - 1 !== file.lastIndexOf('\\')
-                                        ? <a onClick={this.editTags.bind(this, `/api${path}/${file}`)}>{file}</a>
-                                    : <Link to={`${path}/${file}`}>{file}</Link> }
+                                        ? <a onClick={this.editTags.bind(this, `/api${path}/${file}`)}>
+                                            <img src="/assets/images/file.png" height="100" style={{
+                                        display: 'block',
+                                        margin: '0 auto'
+                                    }}/>
+                                    <div style={{
+                                        display: 'block',
+                                        textAlign: 'center'
+                                    }}>{file}</div></a>
+                                    : <Link to={`${path}/${file}`}><img src="/assets/images/folder.png" height="100" style={{
+                                        display: 'block',
+                                        margin: '0 auto'
+                                    }}/>
+                                    <div style={{
+                                        display: 'block',
+                                        textAlign: 'center'
+                                    }}>{file}</div></Link> }
                                 </li>
                             ))}
                         </ul>
