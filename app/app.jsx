@@ -33,7 +33,6 @@ class App extends React.Component {
                     },
                     files: this.props.files
                 })}
-                <Link to="/Python27/">test/a</Link>
             </div>
         );
     }
