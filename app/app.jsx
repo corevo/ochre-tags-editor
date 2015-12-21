@@ -26,7 +26,13 @@ class App extends React.Component {
     render () {
         return (
             <div>
-                <h1>FS</h1>
+                <div style={{
+                    marginRight: "50px"
+                }}>
+                    <h1 style={{
+                        textAlign: "right"
+                    }}>מערכת הוספת תגיות</h1>
+                </div>
                 {React.cloneElement(this.props.children, {
                     setFiles: function(files) {
                         dispatch(changeFiles(files));
