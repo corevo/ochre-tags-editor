@@ -37,6 +37,7 @@
     "react-redux": "^4.0.0",
     "react-router": "^1.0.0",
     "react-tagsinput": "^3.0.3",
+    "reacticons": "0.0.1",
     "redux": "^3.0.4",
     "redux-router": "^1.0.0-beta3",
     "superagent": "^1.4.0",
