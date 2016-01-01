@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import request from 'superagent';
 import Modal from 'react-modal';
 import TagsInput from 'react-tagsinput';
+import Icon from '../partials/icon';
 
 export default class Explorer extends React.Component {
     static propTypes = {
@@ -102,6 +103,7 @@ export default class Explorer extends React.Component {
                                         display: 'block',
                                         margin: '0 auto'
                                     }}/>
+                                    <Icon ext="bye" />
                                     <div style={{
                                         display: 'block',
                                         textAlign: 'center',
