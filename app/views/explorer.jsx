@@ -99,7 +99,7 @@ export default class Explorer extends React.Component {
                                 }}>
                                     { file.length - 1 !== file.lastIndexOf('/') && file.length - 1 !== file.lastIndexOf('\\')
                                         ? <a onClick={this.editTags.bind(this, `/api${path}/${file}`)}>
-                                          <Icon ext="bye" />
+                                          <Icon ext={file.substr(file.lastIndexOf('.') + 1)} />
                                     <div style={{
                                         display: 'block',
                                         textAlign: 'center',
