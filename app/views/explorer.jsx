@@ -106,10 +106,11 @@ export default class Explorer extends React.Component {
                                         width: '200px',
                                         wordWrap: 'break-word'
                                     }}>{file}</div></a>
-                                    : <Link to={`${path}/${file}`}><img src="/assets/images/folder.png" height="100" style={{
-                                        display: 'block',
-                                        margin: '0 auto'
-                                    }}/>
+                                : <Link to={`${path}/${file}`} style={{
+                                    textDecoration: 'none',
+                                    color: 'black'
+                                }}>
+                                    <Icon isFolder={true} />
                                     <div style={{
                                         display: 'block',
                                         textAlign: 'center',

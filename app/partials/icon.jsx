@@ -3,7 +3,8 @@ require('font-awesome-webpack');
 
 export default class Icon extends React.Component {
     static propTypes = {
-        ext: React.PropTypes.string.isRequired,
+        ext: React.PropTypes.string,
+        isFolder: React.PropTypes.bool,
         height: React.PropTypes.string
     }
     fileType (ext) {
@@ -20,10 +21,13 @@ export default class Icon extends React.Component {
         return (Object.keys(types).find(t => (types[t].indexOf(ext) !== -1)));
     }
     render () {
-        let classType = this.fileType(this.props.ext);
-        classType = classType ? classType + '-' : '';
+        let classType;
+        if (!this.props.isFolder) {
+            classType = this.fileType(this.props.ext);
+            classType = classType ? classType + '-' : '';
+        }
         return (
-            <i className={`fa fa-file-${classType}o`} style={{
+            <i className={this.props.isFolder ? 'fa fa-folder' : `fa fa-file-${classType}o`} style={{
                 fontSize: '100px',
                 margin: '0 auto 10px auto',
                 display: 'block',
