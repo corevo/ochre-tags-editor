@@ -17,10 +17,13 @@ export default class Icon extends React.Component {
             ["video"]: ["mp4", "avi", "mkv", "mpeg"],
             ["audio"]: ["mp3", "wav"]
         }
+        return (Object.keys(types).find(t => (types[t].indexOf(ext) !== -1)));
     }
     render () {
+        let classType = this.fileType(this.props.ext);
+        classType = classType ? classType + '-' : '';
         return (
-            <i className="fa fa-file-pdf-o" style={{
+            <i className={`fa fa-file-${classType}o`} style={{
                 fontSize: '100px',
                 margin: '0 auto 10px auto',
                 display: 'block',
