@@ -79,7 +79,7 @@ export default class Explorer extends React.Component {
                         if (index !== 0 && sublink === "")
                             return currLink;
                         currLink.location += `${sublink}/`;
-                        currLink.links.push(<Link key={currLink.location} to={currLink.location}>{sublink}/</Link>);
+                        currLink.links.push(<Link key={currLink.location} to={currLink.location}>{decodeURI(sublink)}/</Link>);
                         return currLink;
                     }, {
                         location: "",
@@ -99,11 +99,7 @@ export default class Explorer extends React.Component {
                                 }}>
                                     { file.length - 1 !== file.lastIndexOf('/') && file.length - 1 !== file.lastIndexOf('\\')
                                         ? <a onClick={this.editTags.bind(this, `/api${path}/${file}`)}>
-                                            <img src="/assets/images/file.png" height="100" style={{
-                                        display: 'block',
-                                        margin: '0 auto'
-                                    }}/>
-                                    <Icon ext="bye" />
+                                          <Icon ext="bye" />
                                     <div style={{
                                         display: 'block',
                                         textAlign: 'center',
