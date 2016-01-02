@@ -8,7 +8,12 @@ export default class Icon extends React.Component {
     }
     render () {
         return (
-            <i className="fa fa-file-pdf-o"></i>
+            <i className="fa fa-file-pdf-o" style={{
+                fontSize: '100px',
+                margin: '0 auto 10px auto',
+                display: 'block',
+                textAlign: 'center'
+            }}></i>
         );
     }
 }
