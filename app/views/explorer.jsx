@@ -8,6 +8,7 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 
 require('react-datepicker/dist/react-datepicker.css');
+moment.locale('heb');
 
 export default class Explorer extends React.Component {
     static propTypes = {
