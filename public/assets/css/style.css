@@ -10,6 +10,10 @@ h1 {
     color: #444;
 }
 
+.flex {
+    display: flex;
+}
+
 .form-input {
     background-color: #fff;
     border: 1px solid #ccc;
