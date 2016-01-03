@@ -37,6 +37,10 @@ module.exports = {
             {
                 test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 loader: "file-loader?name=assets/bin/images/[name].[ext]"
+            },
+            {
+                test: /\.css$/,
+                loader: "style-loader!css-loader?name=assets/bin/css/[name].[ext]"
             }
         ]
     },
