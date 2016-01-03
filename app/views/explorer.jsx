@@ -4,6 +4,10 @@ import request from 'superagent';
 import Modal from 'react-modal';
 import TagsInput from 'react-tagsinput';
 import Icon from '../partials/icon';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+
+require('react-datepicker/dist/react-datepicker.css');
 
 export default class Explorer extends React.Component {
     static propTypes = {
@@ -14,6 +18,7 @@ export default class Explorer extends React.Component {
         super(props);
         this.state = {
             isEdit: false,
+            date: moment(),
             tags: []
         };
         this.statPath = this.statPath.bind(this);
@@ -127,19 +132,19 @@ export default class Explorer extends React.Component {
                             <div className="form">
                             <h2>הוספת תגיות</h2>
                             <label className="flex">
-                                <span>תאריך המסמך</span>
-                                <input className="form-input form-control" type="text" />
+                                <span className="form-label">תאריך המסמך</span>
+                                <DatePicker className="form-input" selected={this.state.date} />
                             </label>
                             <label className="flex">
-                                <span>מחבר</span>
-                                <input className="form-input form-control" type="text" />
+                                <span className="form-label">מחבר</span>
+                                <input className="form-input" type="text" />
                             </label>
                             <label className="flex">
-                                <span>יחידה</span>
-                                <input className="form-input form-control" type="text" />
+                                <span className="form-label">יחידה</span>
+                                <input className="form-input" type="text" />
                             </label>
                             <label className="flex">
-                                <span>תגיות</span>
+                                <span className="form-label">תגיות</span>
                                 <TagsInput value={this.state.tags} onChange={this.tagsChanged.bind(this)} style={{
                                         width: '50%'
                                     }} />
