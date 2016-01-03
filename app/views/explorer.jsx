@@ -92,7 +92,7 @@ export default class Explorer extends React.Component {
                             }}>
                             { this.props.files.map(file => (
                                 <li key={file} style={{
-                                    float: 'left',
+                                    display: 'inline-table',
                                     marginRight: '60px',
                                     marginTop: '60px',
                                     fontSize: '20px'
