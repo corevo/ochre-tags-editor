@@ -134,7 +134,7 @@ export default class Explorer extends React.Component {
                             <h2>הוספת תגיות</h2>
                             <label className="flex">
                                 <span className="form-label">תאריך המסמך</span>
-                                <DatePicker className="form-input" selected={this.state.date} />
+                                <DatePicker dateFormat="DD/MM/YYYY" className="form-input" selected={this.state.date} />
                             </label>
                             <label className="flex">
                                 <span className="form-label">מחבר</span>
