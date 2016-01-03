@@ -124,7 +124,7 @@ export default class Explorer extends React.Component {
                         <Modal
                             isOpen={this.state.isEdit}
                             onRequestClose={this.closeModal}>
-                            <h2>Add Tags</h2>
+                            <h2>הוספת תגיות</h2>
                             <label className="flex">
                                 תאריך המסמך
                                 <input className="form-input" type="text" />
