@@ -3,55 +3,71 @@ body {
     height: 100%;
     margin: 0;
     background-color: #fff;
+    direction: rtl;
 }
 
 h1 {
     color: #444;
 }
 
+.form-input {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    padding: 10px 5px 10px 5px;
+    color: #777;
+    font-family: sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 6px;
+    margin-top: 1px;
+    outline: none;
+    width: 80px;
+}
+
 .react-tagsinput {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  overflow: hidden;
-  padding-left: 5px;
-  padding-top: 5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    padding-left: 5px;
+    padding-top: 5px;
 }
 
 .react-tagsinput-tag {
-  background-color: #cde69c;
-  border-radius: 2px;
-  border: 1px solid #a5d24a;
-  color: #638421;
-  display: inline-block;
-  font-family: sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  margin-bottom: 5px;
-  margin-right: 5px;
-  padding: 5px;
+    background-color: #cde69c;
+    border-radius: 2px;
+    border: 1px solid #a5d24a;
+    color: #638421;
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    padding: 5px;
 }
 
 .react-tagsinput-remove {
-  cursor: pointer;
-  font-weight: bold;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .react-tagsinput-tag a::before {
-  content: " x";
+    content: " x";
 }
 
 .react-tagsinput-input {
-  background: transparent;
-  border: 0;
-  color: #777;
-  font-family: sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  margin-bottom: 6px;
-  margin-top: 1px;
-  outline: none;
-  padding: 5px;
-  width: 80px;
+    background: transparent;
+    border: 0;
+    color: #777;
+    font-family: sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 6px;
+    margin-top: 1px;
+    outline: none;
+    padding: 5px;
+    width: 80px;
 }
 
 .tags-button {
