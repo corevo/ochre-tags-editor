@@ -126,20 +126,22 @@ export default class Explorer extends React.Component {
                             onRequestClose={this.closeModal}>
                             <h2>הוספת תגיות</h2>
                             <label className="flex">
-                                תאריך המסמך
-                                <input className="form-input" type="text" />
+                                <span>תאריך המסמך</span>
+                                <input className="form-input form-control" type="text" />
                             </label>
                             <label className="flex">
-                                מחבר
-                                <input className="form-input" type="text" />
+                                <span>מחבר</span>
+                                <input className="form-input form-control" type="text" />
                             </label>
                             <label className="flex">
-                                יחידה
-                                <input className="form-input" type="text" />
+                                <span>יחידה</span>
+                                <input className="form-input form-control" type="text" />
                             </label>
                             <label className="flex">
-                                תגיות
-                                <TagsInput value={this.state.tags} onChange={this.tagsChanged.bind(this)} />
+                                <span>תגיות</span>
+                                <TagsInput value={this.state.tags} onChange={this.tagsChanged.bind(this)} style={{
+                                        width: '50%'
+                                    }} />
                             </label>
                             <button onClick={this.setTags.bind(this, this.state.path)} className="tags-button">שמור</button>
                         </Modal>
