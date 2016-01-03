@@ -12,6 +12,7 @@ h1 {
 
 .flex {
     display: flex;
+    margin-top: 10px;
 }
 
 .flex span {
