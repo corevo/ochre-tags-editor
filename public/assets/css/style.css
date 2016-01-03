@@ -10,6 +10,10 @@ h1 {
     color: #444;
 }
 
+.form {
+    margin: 0 40px;
+}
+
 .flex {
     display: flex;
     margin-top: 10px;

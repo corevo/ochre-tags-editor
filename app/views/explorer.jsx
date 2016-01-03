@@ -124,6 +124,7 @@ export default class Explorer extends React.Component {
                         <Modal
                             isOpen={this.state.isEdit}
                             onRequestClose={this.closeModal}>
+                            <div className="form">
                             <h2>הוספת תגיות</h2>
                             <label className="flex">
                                 <span>תאריך המסמך</span>
@@ -144,6 +145,7 @@ export default class Explorer extends React.Component {
                                     }} />
                             </label>
                             <button onClick={this.setTags.bind(this, this.state.path)} className="tags-button">שמור</button>
+                            </div>
                         </Modal>
                     <div style={{
                         height: '100px',
