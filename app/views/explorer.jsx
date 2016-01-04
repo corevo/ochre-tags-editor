@@ -8,7 +8,7 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 
 require('react-datepicker/dist/react-datepicker.css');
-moment.locale('heb');
+moment.locale('he');
 
 export default class Explorer extends React.Component {
     static propTypes = {
@@ -134,7 +134,7 @@ export default class Explorer extends React.Component {
                             <h2>הוספת תגיות</h2>
                             <label className="flex">
                                 <span className="form-label">תאריך המסמך</span>
-                                <DatePicker dateFormat="DD/MM/YYYY" className="form-input" selected={this.state.date} />
+                                <DatePicker weekStart="0" weekdays={['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש']}  locale="he" dateFormat="DD/MM/YYYY" className="form-input" selected={this.state.date} />
                             </label>
                             <label className="flex">
                                 <span className="form-label">מחבר</span>
