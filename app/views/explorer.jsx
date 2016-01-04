@@ -51,7 +51,10 @@ export default class Explorer extends React.Component {
         });
     }
     dateChanged(date) {
-        debugger;
+        this.setState({
+            error: date ? '' : 'error',
+            date
+        });
     }
     editTags(path) {
         request.get(path).end((err, res) => {
@@ -141,7 +144,7 @@ export default class Explorer extends React.Component {
                             <h2>הוספת תגיות</h2>
                             <label className="flex">
                                 <span className="form-label">תאריך המסמך</span>
-                                <DatePicker weekStart="0" weekdays={['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש']}  locale="he" dateFormat={format} className={`form-input ${this.state.error}`} selected={this.state.date} />
+                                <DatePicker onChange={this.dateChanged} weekStart="0" weekdays={['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש']}  locale="he" dateFormat={format} className={`form-input ${this.state.error}`} selected={this.state.date} />
                             </label>
                             <label className="flex">
                                 <span className="form-label">מחבר</span>
