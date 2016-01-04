@@ -22,12 +22,14 @@ export default class Explorer extends React.Component {
         this.state = {
             isEdit: false,
             date: moment(),
+            error: '',
             tags: []
         };
         this.statPath = this.statPath.bind(this);
         this.editTags = this.editTags.bind(this);
         this.setTags = this.setTags.bind(this);
         this.closeModal = this.closeModal.bind(this);
+        this.dateChanged = this.dateChanged.bind(this);
     }
     closeModal() {
         this.setState({
@@ -47,6 +49,9 @@ export default class Explorer extends React.Component {
                 this.props.setFiles([]);
             }
         });
+    }
+    dateChanged(date) {
+        debugger;
     }
     editTags(path) {
         request.get(path).end((err, res) => {
@@ -136,7 +141,7 @@ export default class Explorer extends React.Component {
                             <h2>הוספת תגיות</h2>
                             <label className="flex">
                                 <span className="form-label">תאריך המסמך</span>
-                                <DatePicker weekStart="0" weekdays={['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש']}  locale="he" dateFormat={format} className="form-input" selected={this.state.date} />
+                                <DatePicker weekStart="0" weekdays={['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש']}  locale="he" dateFormat={format} className={`form-input ${this.state.error}`} selected={this.state.date} />
                             </label>
                             <label className="flex">
                                 <span className="form-label">מחבר</span>
