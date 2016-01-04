@@ -99,3 +99,7 @@ h1 {
     cursor: pointer;
     outline: none;
 }
+
+.datepicker__container {
+    direction: ltr;
+}
