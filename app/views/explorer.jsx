@@ -8,7 +8,7 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 
 require('react-datepicker/dist/react-datepicker.css');
-const format = "DD/MM/YYYY";
+const format = "D/M/YYYY";
 moment.format = format;
 moment.locale('he');
 
@@ -51,9 +51,10 @@ export default class Explorer extends React.Component {
         });
     }
     dateChanged(date) {
+        console.log(date);
         this.setState({
             error: date ? '' : 'error',
-            date
+            date: date ? date : this.state.date
         });
     }
     editTags(path) {
@@ -144,7 +145,7 @@ export default class Explorer extends React.Component {
                             <h2>הוספת תגיות</h2>
                             <label className="flex">
                                 <span className="form-label">תאריך המסמך</span>
-                                <DatePicker onChange={this.dateChanged} weekStart="0" weekdays={['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש']}  locale="he" dateFormat={format} className={`form-input ${this.state.error}`} selected={this.state.date} />
+                                <DatePicker ref="date" onChange={this.dateChanged} weekStart="0" weekdays={['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש']}  locale="he" dateFormat={format} className={`form-input ${this.state.error}`} selected={this.state.date} />
                             </label>
                             <label className="flex">
                                 <span className="form-label">מחבר</span>
