@@ -69,9 +69,15 @@ export default class Explorer extends React.Component {
         });
     }
     setTags(path) {
-        debugger;
-        console.log('hi');
-        request.post(path).send({tags: this.state.tags}).end((err, res) => {
+        let stats = {
+            tags: this.state.tags,
+            author: this.refs.author.value,
+            unit: this.refs.unit.value
+        };
+        if (!this.state.error){
+            stats.date = this.state.date.toDate();
+        }
+        request.post(path).send(stats).end((err, res) => {
             this.setState({
                 isEdit: false
             });
@@ -149,11 +155,11 @@ export default class Explorer extends React.Component {
                             </label>
                             <label className="flex">
                                 <span className="form-label">מחבר</span>
-                                <input className="form-input" type="text" />
+                                <input ref="author" className="form-input" type="text" />
                             </label>
                             <label className="flex">
                                 <span className="form-label">יחידה</span>
-                                <input className="form-input" type="text" />
+                                <input ref="unit" className="form-input" type="text" />
                             </label>
                             <label className="flex">
                                 <span className="form-label">תגיות</span>
