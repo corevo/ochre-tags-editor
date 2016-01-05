@@ -151,7 +151,7 @@ export default class Explorer extends React.Component {
                         <Modal
                             isOpen={this.state.isEdit}>
                             <div className="form">
-                            <h2>הוספת תגיות</h2>
+                            <h2>ניהול פרטים ותיוג</h2>
                             <label className="flex">
                                 <span className="form-label">תאריך המסמך</span>
                                 <DatePicker ref="date" onChange={this.dateChanged} weekStart="0" weekdays={['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש']}  locale="he" dateFormat={format} className={`form-input ${this.state.error}`} selected={this.state.date} />
