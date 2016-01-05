@@ -61,7 +61,6 @@ export default class Explorer extends React.Component {
         request.get(path).end((err, res) => {
             if (!err) {
                 let stats = JSON.parse(res.text);
-                debugger;
                 this.setState({
                     isEdit: true,
                     path,
@@ -79,7 +78,6 @@ export default class Explorer extends React.Component {
             author: this.refs.author.value,
             unit: this.refs.unit.value
         };
-        debugger;
         if (!this.state.error && this.state.date){
             stats.date = this.state.date.toDate();
         }
