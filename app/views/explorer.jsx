@@ -151,8 +151,7 @@ export default class Explorer extends React.Component {
                         </ul>
                         : undefined }
                         <Modal
-                            isOpen={this.state.isEdit}
-                            onRequestClose={this.closeModal}>
+                            isOpen={this.state.isEdit}>
                             <div className="form">
                             <h2>הוספת תגיות</h2>
                             <label className="flex">
