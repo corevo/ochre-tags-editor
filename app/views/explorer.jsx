@@ -57,7 +57,7 @@ export default class Explorer extends React.Component {
             date: date ? date : this.state.date
         });
     }
-    editTags(path) {
+    editTags(path, file) {
         request.get(path).end((err, res) => {
             if (!err) {
                 let stats = JSON.parse(res.text);
@@ -67,7 +67,8 @@ export default class Explorer extends React.Component {
                     date: stats.date ? moment(new Date(stats.date)) : undefined,
                     author: stats.author,
                     unit: stats.unit,
-                    tags: stats.tags
+                    tags: stats.tags,
+                    file
                 });
             }
         });
@@ -125,7 +126,7 @@ export default class Explorer extends React.Component {
                                     fontSize: '20px'
                                 }}>
                                     { file.length - 1 !== file.lastIndexOf('/') && file.length - 1 !== file.lastIndexOf('\\')
-                                        ? <a onClick={this.editTags.bind(this, `/api${path}/${file}`)}>
+                                        ? <a onClick={this.editTags.bind(this, `/api${path}/${file}`, file)}>
                                           <Icon ext={file.substr(file.lastIndexOf('.') + 1)} />
                                     <div style={{
                                         display: 'block',
@@ -151,7 +152,7 @@ export default class Explorer extends React.Component {
                         <Modal
                             isOpen={this.state.isEdit}>
                             <div className="form">
-                            <h2>ניהול פרטים ותיוג</h2>
+                            <h2>ניהול פרטים ותיוג - {this.state.file}</h2>
                             <label className="flex">
                                 <span className="form-label">תאריך המסמך</span>
                                 <DatePicker ref="date" onChange={this.dateChanged} weekStart="0" weekdays={['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש']}  locale="he" dateFormat={format} className={`form-input ${this.state.error}`} selected={this.state.date} />
