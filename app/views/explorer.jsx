@@ -172,7 +172,12 @@ export default class Explorer extends React.Component {
                                         width: '50%'
                                     }} />
                             </label>
-                            <button onClick={this.setTags.bind(this, this.state.path)} className="tags-button">שמור</button>
+                            <button onClick={this.setTags.bind(this, this.state.path)} className="tags-button" style={{
+                                    borderColor: '#638421',
+                                    background: '#96BF43',
+                                    marginRight: '20px'
+                                }}>שמור</button>
+                            <button onClick={this.closeModal} className="tags-button">סגור</button>
                             </div>
                         </Modal>
                     <div style={{
