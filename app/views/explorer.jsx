@@ -60,10 +60,15 @@ export default class Explorer extends React.Component {
     editTags(path) {
         request.get(path).end((err, res) => {
             if (!err) {
+                let stats = JSON.parse(res.text);
+                debugger;
                 this.setState({
                     isEdit: true,
                     path,
-                    tags: JSON.parse(res.text).tags
+                    date: stats.date ? moment(new Date(stats.date)) : undefined,
+                    author: stats.author,
+                    unit: stats.unit,
+                    tags: stats.tags
                 });
             }
         });
@@ -74,7 +79,8 @@ export default class Explorer extends React.Component {
             author: this.refs.author.value,
             unit: this.refs.unit.value
         };
-        if (!this.state.error){
+        debugger;
+        if (!this.state.error && this.state.date){
             stats.date = this.state.date.toDate();
         }
         request.post(path).send(stats).end((err, res) => {
@@ -155,11 +161,11 @@ export default class Explorer extends React.Component {
                             </label>
                             <label className="flex">
                                 <span className="form-label">מחבר</span>
-                                <input ref="author" className="form-input" type="text" />
+                                <input ref="author" defaultValue={this.state.author} className="form-input" type="text" />
                             </label>
                             <label className="flex">
                                 <span className="form-label">יחידה</span>
-                                <input ref="unit" className="form-input" type="text" />
+                                <input ref="unit" defaultValue={this.state.unit} className="form-input" type="text" />
                             </label>
                             <label className="flex">
                                 <span className="form-label">תגיות</span>
