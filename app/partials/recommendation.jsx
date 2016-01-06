@@ -11,7 +11,7 @@ export default class Recommendation extends React.Component {
             listStyle: 'none'
         }}>
             {this.props.recommendations.map(recommendation => (
-                <li style={{
+                <li key={recommendation} style={{
                         paddingLeft: '0.5em'
                     }}>
                     <a onClick={this.props.tagClicked.bind(undefined, recommendation)} href="#" className="recommendation">
