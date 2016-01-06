@@ -178,7 +178,10 @@ export default class Explorer extends React.Component {
                                     marginRight: '20px'
                                 }}>שמור</button>
                             <button onClick={this.closeModal} className="tags-button">סגור</button>
-                            <hr />
+                            <hr style={{
+                                    clear: 'both',
+                                    marginTop: '60px'
+                                }} />
                             <Recommendation recommendations={['צהל', 'ישראל']} />
                             </div>
                         </Modal>
