@@ -5,10 +5,15 @@ export default class Recommendation extends React.Component {
         recommendations: React.PropTypes.array.isRequired
     }
     render () {
-        return (<ul>
+        return (<ul style={{
+            display: 'flex',
+            listStyle: 'none'
+        }}>
             {this.props.recommendations.map(recommendation => (
-                <li>
-                    <a>
+                <li style={{
+                        paddingLeft: '0.5em'
+                    }}>
+                    <a href="#" className="recommendation">
                         {recommendation}
                     </a>
                 </li>
