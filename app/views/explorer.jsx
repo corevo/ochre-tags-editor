@@ -186,6 +186,7 @@ export default class Explorer extends React.Component {
                                     clear: 'both',
                                     marginTop: '60px'
                                 }} />
+                            <h3>תיוגים מומלצים</h3>
                             <Recommendation recommendations={['צהל', 'ישראל']} tagClicked={this.tagClicked.bind(this)} />
                             </div>
                         </Modal>
