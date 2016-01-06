@@ -58,6 +58,10 @@ export default class Explorer extends React.Component {
             date: date ? date : this.state.date
         });
     }
+    tagClicked(tag) {
+        this.state.tags.push(tag);
+        this.forceUpdate();
+    }
     editTags(path, file) {
         request.get(path).end((err, res) => {
             if (!err) {
@@ -182,7 +186,7 @@ export default class Explorer extends React.Component {
                                     clear: 'both',
                                     marginTop: '60px'
                                 }} />
-                            <Recommendation recommendations={['צהל', 'ישראל']} />
+                            <Recommendation recommendations={['צהל', 'ישראל']} tagClicked={this.tagClicked.bind(this)} />
                             </div>
                         </Modal>
                     <div style={{
