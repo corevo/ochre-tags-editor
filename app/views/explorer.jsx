@@ -6,6 +6,7 @@ import TagsInput from 'react-tagsinput';
 import Icon from '../partials/icon';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
+import Recommendation from '../partials/recommendation';
 
 require('react-datepicker/dist/react-datepicker.css');
 const format = "D/M/YYYY";
@@ -177,6 +178,8 @@ export default class Explorer extends React.Component {
                                     marginRight: '20px'
                                 }}>שמור</button>
                             <button onClick={this.closeModal} className="tags-button">סגור</button>
+                            <hr />
+                            <Recommendation recommendations={['צהל', 'ישראל']} />
                             </div>
                         </Modal>
                     <div style={{
