@@ -6,8 +6,12 @@ body {
     direction: rtl;
 }
 
-h1 {
+h1,.recommendation, .recommendation:visited {
     color: #444;
+}
+
+.recommendation:active {
+    color: red;
 }
 
 .error {
