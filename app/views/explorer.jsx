@@ -98,11 +98,15 @@ export default class Explorer extends React.Component {
             path = path.substr(0, path.length - 1);
         return (
             <div>
-                <h1>{path.split("/").reduce((currLink, sublink, index) => {
+                <h1 style={{
+                    marginRight: "50px"
+                }}>{path.split("/").reduce((currLink, sublink, index) => {
                         if (index !== 0 && sublink === "")
                             return currLink;
                         currLink.location += `${sublink}/`;
-                        currLink.links.push(<Link key={currLink.location} to={currLink.location}>{decodeURI(sublink)}/</Link>);
+                        currLink.links.push(<Link key={currLink.location} to={currLink.location}>{index === 0 ? <i className="fa fa-home" style={{
+                            textDecoration: "underline"
+                        }}></i> : undefined}{decodeURI(sublink)}/</Link>);
                         return currLink;
                     }, {
                         location: "",
