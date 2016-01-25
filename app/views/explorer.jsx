@@ -17,12 +17,11 @@ export default class Explorer extends React.Component {
     static propTypes = {
         setFiles: React.PropTypes.func,
         files: React.PropTypes.array
-    }
+    };
     constructor(props) {
         super(props);
         this.state = {
             isEdit: false,
-            date: moment(),
             error: '',
             tags: []
         };
@@ -52,7 +51,6 @@ export default class Explorer extends React.Component {
         });
     }
     dateChanged(date) {
-        console.log(date);
         this.setState({
             error: date ? '' : 'error',
             date: date ? date : this.state.date
