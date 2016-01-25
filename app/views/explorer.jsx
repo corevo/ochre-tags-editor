@@ -7,6 +7,7 @@ import Icon from '../partials/icon';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import Recommendation from '../partials/recommendation';
+import RecommendationForm from '../partials/recommendation-form';
 
 require('react-datepicker/dist/react-datepicker.css');
 const format = "D/M/YYYY";
@@ -24,7 +25,8 @@ export default class Explorer extends React.Component {
             isEdit: false,
             error: '',
             tags: [],
-            recommendations: []
+            recommendations: [],
+            recommendationsOpen: false
         };
         this.statPath = this.statPath.bind(this);
         this.editTags = this.editTags.bind(this);
@@ -35,6 +37,16 @@ export default class Explorer extends React.Component {
     closeModal() {
         this.setState({
             isEdit: false
+        });
+    }
+    openRecommendationsModal() {
+        this.setState({
+            recommendationsOpen: true
+        });
+    }
+    closeRecommendationsModal() {
+        this.setState({
+            recommendationsOpen: false
         });
     }
     tagsChanged(tags) {
@@ -115,7 +127,8 @@ export default class Explorer extends React.Component {
         return (
             <div>
                 <h1 style={{
-                    marginRight: "50px"
+                    marginRight: "50px",
+                    display: "inline-flex"
                 }}>{path.split("/").reduce((currLink, sublink, index) => {
                         if (index !== 0 && sublink === "")
                             return currLink;
@@ -128,6 +141,11 @@ export default class Explorer extends React.Component {
                         location: "",
                         links: []
                     }).links}</h1>
+                <h1 style={{
+                    display: "inline-flex",
+                    float: "left",
+                    marginLeft: "50px"
+                }}><a onClick={this.openRecommendationsModal.bind(this)}>עריכת תגיות מומלצות</a></h1>
                     <hr />
                     { this.props.files ?
                         <ul style={{
@@ -200,6 +218,7 @@ export default class Explorer extends React.Component {
                             <Recommendation recommendations={this.state.recommendations} tagClicked={this.tagClicked.bind(this)} />
                             </div>
                         </Modal>
+                        <RecommendationForm recommendations={this.state.recommendations} isOpen={this.state.recommendationsOpen} close={this.closeRecommendationsModal.bind(this)} />
                     <div style={{
                         height: '100px',
                         clear: 'both'
