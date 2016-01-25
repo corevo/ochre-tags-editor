@@ -23,7 +23,8 @@ export default class Explorer extends React.Component {
         this.state = {
             isEdit: false,
             error: '',
-            tags: []
+            tags: [],
+            recommendations: []
         };
         this.statPath = this.statPath.bind(this);
         this.editTags = this.editTags.bind(this);
@@ -93,6 +94,13 @@ export default class Explorer extends React.Component {
     }
     componentWillMount() {
         this.statPath('/api/files' + this.props.location.pathname);
+        request.get('/api/tags').end((err, res) => {
+            if (!err) {
+                this.setState({
+                    recommendations: JSON.parse(res.text)
+                });
+            }
+        });
     }
     componentWillReceiveProps(nextProps) {
         if (this.props.location.pathname !== nextProps.location.pathname) {
@@ -189,7 +197,7 @@ export default class Explorer extends React.Component {
                                     marginTop: '60px'
                                 }} />
                             <h3>תיוגים מומלצים</h3>
-                            <Recommendation recommendations={['צהל', 'ישראל']} tagClicked={this.tagClicked.bind(this)} />
+                            <Recommendation recommendations={this.state.recommendations} tagClicked={this.tagClicked.bind(this)} />
                             </div>
                         </Modal>
                     <div style={{
