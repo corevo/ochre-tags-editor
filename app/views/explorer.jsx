@@ -49,6 +49,14 @@ export default class Explorer extends React.Component {
             recommendationsOpen: false
         });
     }
+    saveRecommendedTags(tags) {
+        request.post('/api/tags').send(tags).end((err, res) => {
+            this.setState({
+                recommendationsOpen: false,
+                recommendations: tags
+            });
+        });
+    }
     tagsChanged(tags) {
         this.setState({
             tags
@@ -218,7 +226,7 @@ export default class Explorer extends React.Component {
                             <Recommendation recommendations={this.state.recommendations} tagClicked={this.tagClicked.bind(this)} />
                             </div>
                         </Modal>
-                        <RecommendationForm recommendations={this.state.recommendations} isOpen={this.state.recommendationsOpen} close={this.closeRecommendationsModal.bind(this)} />
+                        <RecommendationForm save={this.saveRecommendedTags.bind(this)} recommendations={this.state.recommendations} isOpen={this.state.recommendationsOpen} close={this.closeRecommendationsModal.bind(this)} />
                     <div style={{
                         height: '100px',
                         clear: 'both'

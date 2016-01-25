@@ -11,15 +11,32 @@ export default class RecommendationsForm extends React.Component {
     static defaultProps = {
         isOpen: true
     };
+    constructor(props) {
+        super(props);
+        this.state = {
+            tags: []
+        }
+    }
     tagsChanged (tags) {
-        console.log(tags);
+        this.setState({
+            tags
+        });
     }
     closeModal () {
         if (this.props.close) {
             this.props.close();
         }
     }
-    setTags(){}
+    setTags(){
+        if (this.props.save && this.state.tags) {
+            this.props.save(this.state.tags);
+        }
+    }
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            tags: nextProps.recommendations
+        });
+    }
     render () {
         return (
             <Modal
@@ -28,7 +45,7 @@ export default class RecommendationsForm extends React.Component {
                     <h2>עריכת תגיות מומלצות</h2>
                     <label className="flex">
                         <span className="form-label">תגיות</span>
-                        <TagsInput value={this.props.recommendations} onChange={this.tagsChanged.bind(this)} style={{
+                        <TagsInput value={this.state.tags} onChange={this.tagsChanged.bind(this)} style={{
                              width: '50%'
                         }} />
                     </label>
