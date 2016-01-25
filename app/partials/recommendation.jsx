@@ -4,7 +4,7 @@ export default class Recommendation extends React.Component {
     static propTypes = {
         recommendations: React.PropTypes.array.isRequired,
         tagClicked: React.PropTypes.func
-    }
+    };
     render () {
         return (<ul style={{
             display: 'flex',

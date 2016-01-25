@@ -92,11 +92,11 @@ export default class Explorer extends React.Component {
         });
     }
     componentWillMount() {
-        this.statPath('/api' + this.props.location.pathname);
+        this.statPath('/api/files' + this.props.location.pathname);
     }
     componentWillReceiveProps(nextProps) {
         if (this.props.location.pathname !== nextProps.location.pathname) {
-            let path = '/api' + nextProps.location.pathname;
+            let path = '/api/files' + nextProps.location.pathname;
             this.statPath(path);
         }
     }
@@ -133,7 +133,7 @@ export default class Explorer extends React.Component {
                                     fontSize: '20px'
                                 }}>
                                     { file.length - 1 !== file.lastIndexOf('/') && file.length - 1 !== file.lastIndexOf('\\')
-                                        ? <a onClick={this.editTags.bind(this, `/api${path}/${file}`, file)}>
+                                        ? <a onClick={this.editTags.bind(this, `/api/files${path}/${file}`, file)}>
                                           <Icon ext={file.substr(file.lastIndexOf('.') + 1)} />
                                     <div style={{
                                         display: 'block',
