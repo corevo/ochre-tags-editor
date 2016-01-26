@@ -19,7 +19,7 @@ const dispatch = store.dispatch;
 class App extends React.Component {
     static propTypes = {
         children: React.PropTypes.node
-    }
+    };
     constructor(props) {
         super(props);
     }
