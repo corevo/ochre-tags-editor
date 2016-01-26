@@ -6,7 +6,7 @@ export default class Icon extends React.Component {
         ext: React.PropTypes.string,
         isFolder: React.PropTypes.bool,
         height: React.PropTypes.string
-    }
+    };
     fileType (ext) {
         const types = {
             ["pdf"]: ["pdf"],
