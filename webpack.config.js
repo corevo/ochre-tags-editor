@@ -3,6 +3,9 @@ var webpack = require('webpack'),
 
 var plugins = [
     //new CommonsChunkPlugin('./public/common.js'),
+    new webpack.DefinePlugin({
+        'process.env.NODE_ENV': process.env.NODE_ENV
+    })
 ];
 
 if (process.env.NODE_ENV === 'production') {
