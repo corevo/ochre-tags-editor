@@ -136,7 +136,8 @@ export default class Explorer extends React.Component {
             <div>
                 <h1 style={{
                     marginRight: "50px",
-                    display: "inline-flex"
+                    display: "inline-flex",
+                    fontSize: "1.5em"
                 }}>{path.split("/").reduce((currLink, sublink, index) => {
                         if (index !== 0 && sublink === "")
                             return currLink;
