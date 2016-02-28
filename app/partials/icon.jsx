@@ -27,7 +27,7 @@ export default class Icon extends React.Component {
             classType = classType ? classType + '-' : '';
         }
         return (
-            <i className={this.props.isFolder ? 'fa fa-folder' : `fa fa-file-${classType}o`} style={{
+            <i className={this.props.isFolder ? 'fa fa-folder-open-o' : `fa fa-file-${classType}o`} style={{
                 fontSize: '100px',
                 margin: '0 auto 10px auto',
                 display: 'block',
