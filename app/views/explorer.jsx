@@ -150,12 +150,17 @@ export default class Explorer extends React.Component {
                         location: "",
                         links: []
                     }).links}</h1>
-                <h1 style={{
-                    display: "inline-flex",
-                    float: "left",
-                    marginLeft: "50px"
-                }}><a onClick={this.openRecommendationsModal.bind(this)}>עריכת תגיות מומלצות</a></h1>
-                    <hr />
+                <div><a className="tags-button" onClick={this.openRecommendationsModal.bind(this)} style={{
+                borderColor: "#808080",
+                display: "block",
+                background: "#D0D0D0",
+                fontWeight: 100,
+                width: "inherit",
+                paddingRight: "10px",
+                paddingLeft: "10px",
+                marginLeft: "20px"
+                }}>עריכת תגיות מומלצות</a></div>
+                <div>
                     { this.props.files ?
                         <ul style={{
                                 listStyle: 'none'
@@ -233,6 +238,7 @@ export default class Explorer extends React.Component {
                         clear: 'both'
                     }}></div>
                     </div>
+                </div>
                 );
             }
         }
