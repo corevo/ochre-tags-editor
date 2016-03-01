@@ -142,7 +142,7 @@ export default class Explorer extends React.Component {
                         if (index !== 0 && sublink === "")
                             return currLink;
                         currLink.location += `${sublink}/`;
-                        currLink.links.push(<Link key={currLink.location} to={currLink.location}>{index === 0 ? <i className="fa fa-home" style={{
+                        currLink.links.push(<Link className="breadcrumbs" key={currLink.location} to={currLink.location}>{index === 0 ? <i className="fa fa-home" style={{
                             textDecoration: "underline"
                         }}></i> : undefined}{decodeURI(sublink)}/</Link>);
                         return currLink;
@@ -150,17 +150,23 @@ export default class Explorer extends React.Component {
                         location: "",
                         links: []
                     }).links}</h1>
-                <div><a className="tags-button" onClick={this.openRecommendationsModal.bind(this)} style={{
-                borderColor: "#808080",
+                <div style={{
+                    position: "relative",
+                    top: "-7px"
+                }}><a className="tags-button" onClick={this.openRecommendationsModal.bind(this)} style={{
+                boxShadow: "0 3px 10px rgba(0,0,0,0.23),0 3px 10px rgba(0,0,0,0.16)",
+                border: "inherit",
                 display: "block",
-                background: "#D0D0D0",
+                background: "#448AFF",
                 fontWeight: 100,
                 width: "inherit",
                 paddingRight: "10px",
                 paddingLeft: "10px",
                 marginLeft: "20px"
                 }}>עריכת תגיות מומלצות</a></div>
-                <div>
+        <div style={{
+            backgroundColor: "white"
+        }}>
                     { this.props.files ?
                         <ul style={{
                                 listStyle: 'none'
@@ -199,7 +205,23 @@ export default class Explorer extends React.Component {
                         <Modal
                             isOpen={this.state.isEdit}>
                             <div className="form">
-                            <h2>ניהול פרטים ותיוג - {this.state.file}</h2>
+                            <div>
+                                <h2 style={{
+                                    display: "inline-block",
+                                    marginTop: "20px"
+                                }}>ניהול פרטים ותיוג - {this.state.file}</h2>
+                            <a className="tags-button" href={this.state.path + "?file"} target="_blank" style={{
+                                borderColor: "#3B70C7",
+                                display: "block",
+                                background: "#448AFF",
+                                fontWeight: 100,
+                                width: "inherit",
+                                paddingRight: "10px",
+                                paddingLeft: "10px",
+                                marginLeft: "20px",
+                                marginTop: "20px"
+                            }}><i className="fa fa-eye"></i> צפה בקובץ</a>
+                            </div>
                             <label className="flex">
                                 <span className="form-label">תאריך המסמך</span>
                                 <DatePicker ref="date" onChange={this.dateChanged} weekStart="0" weekdays={['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש']}  locale="he" dateFormat={format} className={`form-input ${this.state.error}`} selected={this.state.date} />
