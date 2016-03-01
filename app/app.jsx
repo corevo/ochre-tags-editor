@@ -37,7 +37,9 @@ class App extends React.Component {
                     <h1 style={{
                         textAlign: "right",
                         display: "inline-block",
-                        verticalAlign: "bottom"
+                        verticalAlign: "bottom",
+                        color: "white",
+                        fontWeight: 100
                     }}>מערכת הוספת תגיות</h1>
                </div>
                 {React.cloneElement(this.props.children, {
