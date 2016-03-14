@@ -240,6 +240,10 @@ export default class Explorer extends React.Component {
                                         width: '50%'
                                     }} />
                             </label>
+                            <label className="flex">
+                                <span className="form-label"></span>
+                                <span className="">*יש ללחוץ ׳אנטר׳ כדי לקבל תגית</span>
+                            </label>
                             <button onClick={this.setTags.bind(this, this.state.path)} className="tags-button" style={{
                                     borderColor: '#638421',
                                     background: '#96BF43',
