@@ -204,7 +204,15 @@ export default class Explorer extends React.Component {
                         : undefined }
                         <Modal
                             isOpen={this.state.isEdit}>
-                            <div className="form">
+                            <div style={{
+                                display: "flex"
+                            }}>
+                            <iframe src={this.state.path + "?file&zoom=300"} style={{
+                                width: "60%"
+                            }}></iframe>
+                        <div className="form" style={{
+                            width: "30%"
+                        }}>
                             <div>
                                 <h2 style={{
                                     display: "inline-block",
@@ -257,6 +265,7 @@ export default class Explorer extends React.Component {
                             <h3>תיוגים מומלצים</h3>
                             <Recommendation recommendations={this.state.recommendations} tagClicked={this.tagClicked.bind(this)} />
                             </div>
+                        </div>
                         </Modal>
                         <RecommendationForm save={this.saveRecommendedTags.bind(this)} recommendations={this.state.recommendations} isOpen={this.state.recommendationsOpen} close={this.closeRecommendationsModal.bind(this)} />
                     <div style={{
