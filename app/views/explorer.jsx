@@ -218,17 +218,6 @@ export default class Explorer extends React.Component {
                                     display: "inline-block",
                                     marginTop: "20px"
                                 }}>ניהול פרטים ותיוג - {this.state.file}</h2>
-                            <a className="tags-button" href={this.state.path + "?file"} target="_blank" style={{
-                                borderColor: "#3B70C7",
-                                display: "block",
-                                background: "#448AFF",
-                                fontWeight: 100,
-                                width: "inherit",
-                                paddingRight: "10px",
-                                paddingLeft: "10px",
-                                marginLeft: "20px",
-                                marginTop: "20px"
-                            }}><i className="fa fa-eye"></i> צפה בקובץ</a>
                             </div>
                             <label className="flex">
                                 <span className="form-label">תאריך המסמך</span>
