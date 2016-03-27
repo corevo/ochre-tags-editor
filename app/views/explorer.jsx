@@ -205,7 +205,8 @@ export default class Explorer extends React.Component {
                         <Modal
                             isOpen={this.state.isEdit}>
                             <div style={{
-                                display: "flex"
+                                display: "flex",
+                                height: "100%"
                             }}>
                             <iframe src={this.state.path + "?file&zoom=300"} style={{
                                 width: "60%"
