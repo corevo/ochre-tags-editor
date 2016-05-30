@@ -22,6 +22,19 @@ class App extends React.Component {
     };
     constructor(props) {
         super(props);
+        this.state = {
+            countVisible: false,
+            count: 0
+        };
+    }
+    componentWillMount() {
+        request.get('/api/elastic/count').end((err, res) => {
+            if (err) {
+                this.setState({ countVisible: false });
+            } else {
+                this.setState({ countVisible: true, count: JSON.parse(res.text).count });
+            }
+        });
     }
     render () {
         return (
@@ -34,13 +47,21 @@ class App extends React.Component {
                     <img src="/assets/images/logo.png" height="100" style={{
                         display: "inline-block"
                     }} />
+                <div style={{
+                    display: "inline-block"
+                }}>
                     <h1 style={{
-                        textAlign: "right",
-                        display: "inline-block",
                         verticalAlign: "bottom",
                         color: "white",
-                        fontWeight: 100
+                        fontWeight: 100,
+                        margin: 0
                     }}>מערכת הוספת תגיות</h1>
+                <p style={{
+                    margin: 0,
+                    color: "white",
+                    display: this.state.countVisible ? "block" : "none"
+                }}>{this.state.count} קבצים במערכת</p>
+                    </div>
                </div>
                 {React.cloneElement(this.props.children, {
                     setFiles: function(files) {
