@@ -29,6 +29,7 @@
     "babel-preset-stage-0": "^6.1.18",
     "body-parser": "^1.14.2",
     "css-loader": "^0.23.1",
+    "elasticsearch": "^11.0.1",
     "express": "^4.13.3",
     "file-loader": "^0.8.5",
     "font-awesome": "^4.5.0",
