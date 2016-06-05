@@ -7,12 +7,18 @@ export default class Recommendation extends React.Component {
     };
     render () {
         return (<ul style={{
-            display: 'flex',
-            listStyle: 'none'
+            listStyle: 'none',
+            overflow: 'hidden',
+            marginBottom: '10px',
+            width: '400px',
+            paddingRight: '0px'
         }}>
             {this.props.recommendations.map(recommendation => (
                 <li key={recommendation} style={{
-                        paddingLeft: '0.5em'
+                        float: 'left',
+                        display: 'inline',
+                        width: '33.333%',
+                        marginBottom: '10px'
                     }}>
                     <a onClick={this.props.tagClicked.bind(undefined, recommendation)} href="#" className="recommendation">
                         {recommendation}
