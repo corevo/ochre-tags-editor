@@ -121,6 +121,9 @@ export default class Explorer extends React.Component {
                 });
             }
         });
+        if (this.props.location.query.of && this.props.location.query.op) {
+            this.editTags(this.props.location.query.op, this.props.location.query.of);
+        }
     }
     componentWillReceiveProps(nextProps) {
         if (this.props.location.pathname !== nextProps.location.pathname) {
