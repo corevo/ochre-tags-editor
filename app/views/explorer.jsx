@@ -255,7 +255,7 @@ export default class Explorer extends React.Component {
                                     clear: 'both',
                                     marginTop: '60px'
                                 }} />
-                            <h3>תיוגים מומלצים</h3>
+                            <h3>תגיות מומלצות</h3>
                             <Recommendation recommendations={this.state.recommendations} tagClicked={this.tagClicked.bind(this)} />
                             </div>
                         </div>
