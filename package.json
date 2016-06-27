@@ -37,6 +37,7 @@
     "history": "^1.16.0",
     "less": "^2.3.1",
     "md5": "^2.1.0",
+    "ochre-controller": "^0.1.2",
     "path-is-inside": "^1.0.1",
     "react": "^0.14.1",
     "react-datepicker": "^0.17.0",
