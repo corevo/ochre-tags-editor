@@ -89,6 +89,7 @@ export default class Explorer extends React.Component {
                     isEdit: true,
                     path,
                     date: stats.date ? moment(new Date(stats.date)) : undefined,
+                    name: stats.name,
                     author: stats.author,
                     unit: stats.unit,
                     tags: stats.tags,
@@ -100,6 +101,7 @@ export default class Explorer extends React.Component {
     setTags(path) {
         let stats = {
             tags: this.state.tags,
+            name: this.refs.name.value,
             author: this.refs.author.value,
             unit: this.refs.unit.value
         };
@@ -145,9 +147,9 @@ export default class Explorer extends React.Component {
                         if (index !== 0 && sublink === "")
                             return currLink;
                         currLink.location += `${sublink}/`;
-                        currLink.links.push(<Link className="breadcrumbs" key={currLink.location} to={currLink.location}>{index === 0 ? <i className="fa fa-home" style={{
+                        currLink.links.push(<span><Link className="breadcrumbs" key={currLink.location} to={currLink.location}>{index === 0 ? <i className="fa fa-home" style={{
                             textDecoration: "underline"
-                        }}></i> : undefined}{decodeURI(sublink)}/</Link>);
+                        }}></i> : undefined}{decodeURI(sublink)}/</Link>&nbsp;</span>);
                         return currLink;
                     }, {
                         location: "",
@@ -207,6 +209,11 @@ export default class Explorer extends React.Component {
                         : undefined }
                         <Modal
                             isOpen={this.state.isEdit}>
+                            <h2 style={{
+                                display: "block",
+                                marginTop: "20px",
+                                textAlign: "center"
+                            }}>ניהול פרטים ותיוג - {this.state.file}</h2>
                             <div style={{
                                 display: "flex",
                                 height: "100%"
@@ -217,12 +224,10 @@ export default class Explorer extends React.Component {
                         <div className="form" style={{
                             width: "30%"
                         }}>
-                            <div>
-                                <h2 style={{
-                                    display: "inline-block",
-                                    marginTop: "20px"
-                                }}>ניהול פרטים ותיוג - {this.state.file}</h2>
-                            </div>
+                            <label className="flex">
+                                <span className="form-label">כותרת</span>
+                                <input ref="name" defaultValue={this.state.name} className="form-input" type="text" />
+                            </label>
                             <label className="flex">
                                 <span className="form-label">תאריך המסמך</span>
                                 <DatePicker ref="date" onChange={this.dateChanged} weekStart="0" weekdays={['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש']}  locale="he" dateFormat={format} className={`form-input ${this.state.error}`} selected={this.state.date} />
@@ -245,19 +250,19 @@ export default class Explorer extends React.Component {
                                 <span className="form-label"></span>
                                 <span className="">*יש ללחוץ ׳אנטר׳ כדי לקבל תגית</span>
                             </label>
+                            <h3>תגיות מומלצות</h3>
+                            <Recommendation recommendations={this.state.recommendations} tagClicked={this.tagClicked.bind(this)} />
+                            <hr style={{
+                                    clear: 'both',
+                                    marginTop: '60px'
+                                }} />
                             <button onClick={this.setTags.bind(this, this.state.path)} className="tags-button" style={{
                                     borderColor: '#638421',
                                     background: '#96BF43',
                                     marginRight: '20px'
                                 }}>שמור</button>
                             <button onClick={this.closeModal} className="tags-button">סגור</button>
-                            <hr style={{
-                                    clear: 'both',
-                                    marginTop: '60px'
-                                }} />
-                            <h3>תיוגים מומלצים</h3>
-                            <Recommendation recommendations={this.state.recommendations} tagClicked={this.tagClicked.bind(this)} />
-                            </div>
+                        </div>
                         </div>
                         </Modal>
                         <RecommendationForm save={this.saveRecommendedTags.bind(this)} recommendations={this.state.recommendations} isOpen={this.state.recommendationsOpen} close={this.closeRecommendationsModal.bind(this)} />

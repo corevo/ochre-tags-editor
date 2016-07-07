@@ -14,7 +14,8 @@ export default class RecommendationsForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            tags: []
+            tags: [],
+            newTags: []
         }
     }
     tagsChanged (tags) {
@@ -22,10 +23,21 @@ export default class RecommendationsForm extends React.Component {
             tags
         });
     }
+    newTagsChanged (tags) {
+        this.setState({
+            newTags: tags
+        });
+    }
     closeModal () {
         if (this.props.close) {
             this.props.close();
         }
+    }
+    assignTags () {
+        this.setState({
+            tags: [...this.state.tags, ...this.state.newTags],
+            newTags: []
+        });
     }
     setTags(){
         if (this.props.save && this.state.tags) {
@@ -43,12 +55,29 @@ export default class RecommendationsForm extends React.Component {
                 isOpen={this.props.isOpen}>
                 <div className="form">
                     <h2>עריכת תגיות מומלצות</h2>
-                    <label className="flex">
-                        <span className="form-label">תגיות</span>
-                        <TagsInput value={this.state.tags} onChange={this.tagsChanged.bind(this)} style={{
-                             width: '50%'
+                    <div>
+                        <label className="flex">
+                            <span className="form-label">תגיות קיימות</span>
+                            <TagsInput value={this.state.tags} onChange={this.tagsChanged.bind(this)} style={{
+                                width: '50%'
+                            }} />
+                        </label>
+                        <label className="flex">
+                            <span className="form-label">תגיות חדשות</span>
+                            <TagsInput value={this.state.newTags} onChange={this.newTagsChanged.bind(this)} style={{
+                                width: '50%'
+                            }} />
+                        </label>
+                        <button onClick={this.assignTags.bind(this)} className="tags-button" style={{
+                                borderColor: '#638421',
+                                background: '#96BF43',
+                                marginRight: '20px'
+                            }}>הוספה</button>
+                    </div>
+                    <hr style={{
+                            clear: "both",
+                            marginTop: "60px"
                         }} />
-                    </label>
                     <button onClick={this.setTags.bind(this)} className="tags-button" style={{
                             borderColor: '#638421',
                             background: '#96BF43',
