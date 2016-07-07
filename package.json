@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/corevo/ochre-tags-editor#readme",
   "dependencies": {
+    "alpha-sort": "^1.0.2",
     "babel-core": "^6.2.1",
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.1.18",
