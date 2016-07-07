@@ -99,9 +99,10 @@ export default class Explorer extends React.Component {
         });
     }
     setTags(path) {
+      debugger;
         let stats = {
             tags: this.state.tags,
-            name: this.refs.name.value,
+            desc: this.refs.desc.value,
             author: this.refs.author.value,
             unit: this.refs.unit.value
         };
@@ -225,10 +226,6 @@ export default class Explorer extends React.Component {
                             width: "30%"
                         }}>
                             <label className="flex">
-                                <span className="form-label">כותרת</span>
-                                <input ref="name" defaultValue={this.state.name} className="form-input" type="text" />
-                            </label>
-                            <label className="flex">
                                 <span className="form-label">תאריך המסמך</span>
                                 <DatePicker ref="date" onChange={this.dateChanged} weekStart="0" weekdays={['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש']}  locale="he" dateFormat={format} className={`form-input ${this.state.error}`} selected={this.state.date} />
                             </label>
@@ -239,6 +236,10 @@ export default class Explorer extends React.Component {
                             <label className="flex">
                                 <span className="form-label">יחידה</span>
                                 <input ref="unit" defaultValue={this.state.unit} className="form-input" type="text" />
+                            </label>
+                            <label className="flex">
+                              <span className="form-label">כותרת</span>
+                              <textarea className="form-input" ref="desc">{this.state.name}</textarea>
                             </label>
                             <label className="flex">
                                 <span className="form-label">תגיות</span>
