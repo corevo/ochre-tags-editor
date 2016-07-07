@@ -238,7 +238,7 @@ export default class Explorer extends React.Component {
                                 <input ref="unit" defaultValue={this.state.unit} className="form-input" type="text" />
                             </label>
                             <label className="flex">
-                              <span className="form-label">כותרת</span>
+                              <span className="form-label">תיאור</span>
                               <textarea className="form-input" ref="desc">{this.state.name}</textarea>
                             </label>
                             <label className="flex">
