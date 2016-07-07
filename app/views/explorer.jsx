@@ -89,7 +89,7 @@ export default class Explorer extends React.Component {
                     isEdit: true,
                     path,
                     date: stats.date ? moment(new Date(stats.date)) : undefined,
-                    name: stats.name,
+                    desc: stats.desc,
                     author: stats.author,
                     unit: stats.unit,
                     tags: stats.tags,
@@ -99,7 +99,6 @@ export default class Explorer extends React.Component {
         });
     }
     setTags(path) {
-      debugger;
         let stats = {
             tags: this.state.tags,
             desc: this.refs.desc.value,
@@ -239,7 +238,7 @@ export default class Explorer extends React.Component {
                             </label>
                             <label className="flex">
                               <span className="form-label">תיאור</span>
-                              <textarea className="form-input" ref="desc">{this.state.name}</textarea>
+                              <textarea className="form-input" ref="desc">{this.state.desc}</textarea>
                             </label>
                             <label className="flex">
                                 <span className="form-label">תגיות</span>
